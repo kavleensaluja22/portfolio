@@ -1,0 +1,133 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Error - Portfolio{% endblock %}
+
+{% block content %}
+<div class="portfolio-container">
+    <div class="error-section">
+        <div class="error-content">
+            <div class="error-icon">
+                <span class="icon-emoji">😕</span>
+            </div>
+            <h1 class="error-title">Oops! Something went wrong</h1>
+            <p class="error-message">
+                {% if error %}
+                    {{ error }}
+                {% else %}
+                    We encountered an unexpected error. Please try again later.
+                {% endif %}
+            </p>
+            <div class="error-actions">
+                <a href="{% url 'portfolio:home' %}" class="action-button home-button">
+                    <span class="button-emoji">🏠</span>
+                    <span class="button-text">Go Home</span>
+                </a>
+                <button onclick="history.back()" class="action-button back-button">
+                    <span class="button-emoji">⬅️</span>
+                    <span class="button-text">Go Back</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 32px;
+    background: linear-gradient(90deg, #ffe5f1 100%, #e8f5e8 50%, #e1f0ff 0%);
+}
+
+.error-content {
+    max-width: 600px;
+    text-align: center;
+    background: #fff;
+    padding: 60px 40px;
+    border-radius: 48px;
+    border: 8px solid #ff6b9d;
+    box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    background: linear-gradient(90deg, #ff6b9d 100%, #ff8fb3 0%);
+    box-shadow: 0px 12px 32px 0px rgba(255, 107, 157, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+}
+
+.error-icon .icon-emoji {
+    font-size: 48px;
+}
+
+.error-title {
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 40px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.error-message {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.error-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home-button {
+    background: linear-gradient(90deg, #4ecdc4 100%, #6ed3d0 0%);
+    box-shadow: 0px 12px 32px 0px rgba(78, 205, 196, 0.4);
+}
+
+.back-button {
+    background: linear-gradient(90deg, #96ceb4 100%, #a8d5ba 0%);
+    box-shadow: 0px 8px 24px 0px rgba(150, 206, 180, 0.4);
+}
+
+.action-button {
+    height: 60px;
+    padding: 0 30px;
+    border-radius: 30px;
+    border: 4px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    font-family: 'Fredoka One', cursive;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+}
+
+.button-emoji {
+    color: #fff;
+    font-size: 20px;
+}
+
+.button-text {
+    color: #fff;
+    font-size: 16px;
+}
+</style>
+{% endblock %}
