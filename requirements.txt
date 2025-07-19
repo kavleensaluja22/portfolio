@@ -3,7 +3,7 @@ wheel
 build
 
 # Django and your core packages
-Django>=4.2,<5.0
+Django==5.1.2
 
 # Optional: Common packages (add only what you use)
 gunicorn
